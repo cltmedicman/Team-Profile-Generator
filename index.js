@@ -9,9 +9,9 @@ const internArr = [];
 function init() {
     const teamManager = AddManager();
 
-    const confirm = AddEmployee();
+    AddEmployee();
 
-    while (confirm) {
+    /* if (confirm) {
         inquirer.prompt([
             {
                 name: 'employeeType',
@@ -29,8 +29,7 @@ function init() {
                 internArr.push(teamIntern);
             }
         })
-        confirm = AddEmployee();
-    }
+    } */
     console.log(teamManager);
     console.log(engineerArr);
     console.log(internArr);
@@ -63,7 +62,7 @@ function AddManager () {
 
     .then((managerAnswers) => {
         const teamManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
-        return teamManager;
+        // return teamManager;
     });
 }
 
@@ -78,7 +77,25 @@ function AddEmployee() {
 
     .then((answer) => {
         let confirm = answer.continue;
-        return confirm;
+        if (confirm) {
+            inquirer.prompt([
+                {
+                    name: 'employeeType',
+                    type: 'list',
+                    message: 'What type of employee would you like to add?',
+                    choices: [ "Engineer", "Intern" ]
+                }
+            ])
+            .then((answer) => {
+                if (answer.employeeType === "Engineer") {
+                    let teamEngineer = AddEngineer();
+                    engineerArr.push(teamEngineer);
+                } else {
+                    let teamIntern = AddIntern();
+                    internArr.push(teamIntern);
+                }
+            })
+        } 
     })
 }
 
@@ -109,7 +126,8 @@ function AddEngineer() {
 
     .then((engineerAnswers) => {
         const teamEngineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.github);
-        return teamEngineer;
+        AddEmployee();
+        // return teamEngineer;
     })
 }
 
@@ -140,7 +158,8 @@ function AddIntern() {
 
     .then((internAnswers) => {
         const teamIntern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school);
-        return teamIntern;
+        AddEmployee();
+        // return teamIntern;
     })
 }
 
