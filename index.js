@@ -3,37 +3,9 @@ const fs = require('fs');
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
-const engineerArr = [];
-const internArr = [];
-
-function init() {
-    const teamManager = AddManager();
-
-    AddEmployee();
-
-    /* if (confirm) {
-        inquirer.prompt([
-            {
-                name: 'employeeType',
-                type: 'list',
-                message: 'What type of employee would you like to add?',
-                choices: [ "Engineer", "Intern" ]
-            }
-        ])
-        .then((answer) => {
-            if (answer.employeeType === "Engineer") {
-                let teamEngineer = AddEngineer();
-                engineerArr.push(teamEngineer);
-            } else {
-                let teamIntern = AddIntern();
-                internArr.push(teamIntern);
-            }
-        })
-    } */
-    console.log(teamManager);
-    console.log(engineerArr);
-    console.log(internArr);
-}
+let engineerArr = [];
+let internArr = [];
+let teamManager = [];
 
 function AddManager () {
     const managerQuestions = [
@@ -61,8 +33,9 @@ function AddManager () {
     inquirer.prompt(managerQuestions)
 
     .then((managerAnswers) => {
-        const teamManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
-        // return teamManager;
+        teamManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
+        console.log(teamManager);
+        AddEmployee();
     });
 }
 
@@ -88,11 +61,9 @@ function AddEmployee() {
             ])
             .then((answer) => {
                 if (answer.employeeType === "Engineer") {
-                    let teamEngineer = AddEngineer();
-                    engineerArr.push(teamEngineer);
+                    AddEngineer();
                 } else {
-                    let teamIntern = AddIntern();
-                    internArr.push(teamIntern);
+                    AddIntern();
                 }
             })
         } 
@@ -125,9 +96,10 @@ function AddEngineer() {
     inquirer.prompt(engineerQuestions)
 
     .then((engineerAnswers) => {
-        const teamEngineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.github);
+        let teamEngineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.github);
+        engineerArr.push(teamEngineer);
+        console.log(engineerArr);
         AddEmployee();
-        // return teamEngineer;
     })
 }
 
@@ -157,10 +129,11 @@ function AddIntern() {
     inquirer.prompt(internQuestions)
 
     .then((internAnswers) => {
-        const teamIntern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school);
+        let teamIntern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school);
+        internArr.push(teamIntern);
+        console.log(internArr);
         AddEmployee();
-        // return teamIntern;
     })
 }
 
-init();
+AddManager();
