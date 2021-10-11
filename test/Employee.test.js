@@ -12,5 +12,7 @@ test('Test Employee Class', () => {
 
     expect(boolean).toBe(true);
     expect(Jeff.getRole()).toBe("Employee");
-    
+    expect(Jeff.name).toBe('Jeff');
+    expect(Jeff.id).tobe(101);
+    expect(Jeff.email).tobe("Jeff@email.com");
 })

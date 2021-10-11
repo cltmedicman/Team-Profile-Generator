@@ -3,7 +3,7 @@ const fs = require('fs');
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
-const generateHtml = require("./utils/generateHtml");
+const generateHtml = require("./src/generateHtml.js");
 
 let engineerArr = [];
 let internArr = [];
@@ -68,7 +68,10 @@ function AddEmployee() {
                     AddIntern();
                 }
             })
-        } 
+        } else {
+            const htmlGenerate = generateHtml(teamManager, engineerArr, internArr);
+            writeToFile('./dist/Team.html', htmlGenerate);
+        }
     })
 }
 
@@ -135,6 +138,16 @@ function AddIntern() {
         internArr.push(teamIntern);
         console.log(internArr);
         AddEmployee();
+    })
+}
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('File written successfully!')
+        }
     })
 }
 
