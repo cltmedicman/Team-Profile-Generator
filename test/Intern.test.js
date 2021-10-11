@@ -13,7 +13,7 @@ test('Test Intern Class', () => {
     expect(boolean).toBe(true);
     expect(Jeff.getRole()).toBe("👨‍🎓Intern");
     expect(Jeff.name).toBe('Jeff');
-    expect(Jeff.id).tobe(101);
-    expect(Jeff.email).tobe("Jeff@email.com");
-    expect(Jeff.school).tobe("UNCC");
+    expect(typeof Jeff.id).toBe('number');
+    expect(Jeff.email).toBe("Jeff@email.com");
+    expect(Jeff.school).toBe("UNCC");
 })

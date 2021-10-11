@@ -25,7 +25,7 @@ function generateHtml(teamManager, engineerArr, internArr) {
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${teamManager.id}</li>
-                        <li class="list-group-item">Email: ${teamManager.email}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${teamManager.email}">${teamManager.email}</a></li>
                         <li class="list-group-item">Office Number: ${teamManager.officeNumber}</li>
                     </ul>
                 </div>
@@ -54,8 +54,8 @@ function generateEngineer(data) {
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${data[i].id}</li>
-                        <li class="list-group-item">Email: ${data[i].email}</li>
-                        <li class="list-group-item">GitHub: ${data[i].gitHub}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${data[i].email}">${data[i].email}</a></li>
+                        <li class="list-group-item">GitHub: <a href="https://github.com/${data[i].gitHub}">${data[i].gitHub}</a></li>
                     </ul>
                 </div>
             </div>
@@ -85,8 +85,8 @@ function generateIntern(data) {
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${data[i].id}</li>
-                        <li class="list-group-item">Email: ${data[i].email}</li>
-                        <li class="list-group-item">GitHub: ${data[i].gitHub}</li>
+                        <li class="list-group-item">Email: <a href="mailto:${data[i].email}">${data[i].email}</a></li>
+                        <li class="list-group-item">School: ${data[i].school}</li>
                     </ul>
                 </div>
             </div>
