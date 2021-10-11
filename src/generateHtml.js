@@ -1,5 +1,10 @@
-function generateHtml(teamManager, engineerArr, internArr) {
+const Intern = require("../lib/Intern");
+let j = ``;
+let p = ``;
 
+function generateHtml(teamManager, engineerArr, internArr) {
+    console.log(engineerArr);
+    console.log(internArr);
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +47,9 @@ function generateHtml(teamManager, engineerArr, internArr) {
 
 function generateEngineer(data) {
     let e = ``;
+    console.log(data.length);
+    console.log(data[0].name);
+    console.log(data[1].name);
     if(data != null) {
         for (i=0; i < data.length; i++) {
             e = `
@@ -55,17 +63,15 @@ function generateEngineer(data) {
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${data[i].id}</li>
                         <li class="list-group-item">Email: <a href="mailto:${data[i].email}">${data[i].email}</a></li>
-                        <li class="list-group-item">GitHub: <a href="https://github.com/${data[i].gitHub}">${data[i].gitHub}</a></li>
+                        <li class="list-group-item">GitHub: <a href="https://github.com/${data[i].github}/">${data[i].github}</a></li>
                     </ul>
                 </div>
             </div>
             </div>
             `;
-            if (i > 0) {
-                e = e + e;
-            }
+            j = j + e;
         }
-        return e;
+        return j;
     } else {
         return ``
     }
@@ -73,6 +79,7 @@ function generateEngineer(data) {
 
 function generateIntern(data) {
     let x = ``;
+    console.log(data.length);
     if(data != null) {
         for (i=0; i < data.length; i++) {
             x = `
@@ -92,11 +99,9 @@ function generateIntern(data) {
             </div>
             </div>
             `;
-            if (i > 0) {
-                x = x + x;
-            }
+            p = p + x;
         }
-        return x;
+        return p;
     } else {
         return ``
     }
