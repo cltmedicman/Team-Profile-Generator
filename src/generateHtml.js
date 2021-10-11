@@ -47,9 +47,7 @@ function generateHtml(teamManager, engineerArr, internArr) {
 
 function generateEngineer(data) {
     let e = ``;
-    console.log(data.length);
-    console.log(data[0].name);
-    console.log(data[1].name);
+    
     if(data != null) {
         for (i=0; i < data.length; i++) {
             e = `
@@ -79,7 +77,7 @@ function generateEngineer(data) {
 
 function generateIntern(data) {
     let x = ``;
-    console.log(data.length);
+    
     if(data != null) {
         for (i=0; i < data.length; i++) {
             x = `

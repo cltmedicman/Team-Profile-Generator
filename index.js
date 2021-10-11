@@ -36,7 +36,6 @@ function AddManager () {
 
     .then((managerAnswers) => {
         teamManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
-        //console.log(teamManager);
         AddEmployee();
     });
 }
@@ -103,7 +102,6 @@ function AddEngineer() {
     .then((engineerAnswers) => {
         let teamEngineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.github);
         engineerArr.push(teamEngineer);
-        //console.log(engineerArr);
         AddEmployee();
     })
 }
@@ -136,7 +134,6 @@ function AddIntern() {
     .then((internAnswers) => {
         let teamIntern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school);
         internArr.push(teamIntern);
-        //console.log(internArr);
         AddEmployee();
     })
 }
