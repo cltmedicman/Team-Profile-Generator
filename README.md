@@ -5,6 +5,8 @@ This is a HTML genearator. The user is prompted to insert the data to generate a
 ## Screenshot
 Here is a screenshot of the application: ![screencapture-file-C-Users-cltme-OneDrive-Documents-GitHub-Team-Profile-Generator-dist-Team-html-2021-10-10-23_50_11 (1)](https://user-images.githubusercontent.com/79491454/136731145-7f583bb4-83a5-47b7-9ff9-f8bab06b679e.png)
 
+## Video Walkthrough
+https://watch.screencastify.com/v/bGU7AwnX5n4ukvD5KlFD
 
 ## Credits
 Created by Phillip Shirah for UNCC Full Stack Development Bootcamp.
